@@ -90,6 +90,8 @@ var coletes = {
   }
 };
 
+var jogador_um_pronto = false;
+var jogador_dois_pronto = false;
 function show(jogador_um, jogador_dois) {
   console.log(jogador_um);
   console.log(jogador_dois);
@@ -155,9 +157,7 @@ function changeArmaAndColete(jogador) {
         console.log(jogador_um.colete);
       }
     }
-    var jogador_um_pronto = true;
-    console.log("jogador_um_pronto: " + jogador_um_pronto);
-    document.getElementById("jogador_um_button_ready").innerHtml = "Pronto";
+    mudarEstado("jogador_um");
   }
   if (jogador === jogador_dois) {
     var arma_jogador_dois = document.getElementsByName("arma_jogador_dois");
@@ -204,26 +204,46 @@ function changeArmaAndColete(jogador) {
         console.log(jogador_dois.colete);
       }
     }
-    var jogador_dois_pronto = true;
-    console.log("jogador_dois_pronto: " + jogador_dois_pronto);
-    document.getElementById("jogador_dois_button_ready").innerHtml = "NovoTexto";
+    mudarEstado("jogador_dois");
   }
 };
 
-function get(object, param) {
-  var level = param.split("."),
-    value = object;
-  for (var i in level)
-    value = value[level[i]];
-  return value;
-}
-
-function set(object, param, value) {
-  var levels = param.split('.');
-  var lastLevel = levels.pop();
-  get(object, levels.join('.'))[lastLevel] = value;
+function mudarEstado(jogador) {
+  if (jogador === "jogador_um") {
+    if (jogador_um_pronto === true) {
+      jogador_um_pronto = false;
+      document.getElementById("jogador_um_button_ready").innerHtml = "Not Ready"
+    } else {
+      jogador_um_pronto = true;
+      document.getElementById("jogador_um_button_ready").innerHtml = "Ready"
+    }
+  } else {
+    if (jogador === "jogador_dois") {
+      if (jogador_dois_pronto === true) {
+        jogador_dois_pronto = false;
+        document.getElementById("jogador_dois_button_ready").innerHtml = "Not Ready"
+      } else {
+        jogador_dois_pronto = true;
+        document.getElementById("jogador_dois_button_ready").innerHtml = "Ready"
+      }
+    }
+  }
 }
 
 function start() {
-
+  console.log("um " + jogador_um_pronto);
+    console.log("dois " + jogador_dois_pronto);
+  if (jogador_um_pronto === true) {
+    if (jogador_dois_pronto === true) {
+      console.log("jogo começou");
+    } else {
+      console.log("jogador dois não está pronto");
+    }
+  } else {
+    if (jogador_dois_pronto === false) {
+      console.log("jogadores não estão prontos");
+    } else {
+      console.log("jogador um não está pronto");
+    }
+  }
 }
