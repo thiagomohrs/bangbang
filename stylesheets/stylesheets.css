@@ -1,10 +1,8 @@
-body {
-}
+.content {
+  backgoround: #000;
+  font-family: Arial;
+  font-size: 15px; }
+  .content p {
+    line-height: 20px; }
 
-.container {
-}
-
-h1 {
-  align-self: center;
-  text-align: center;
-}
+/*# sourceMappingURL=stylesheets.css.map */

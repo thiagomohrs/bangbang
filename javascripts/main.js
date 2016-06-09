@@ -2,11 +2,14 @@ var jogador_um = {
   nome: "teste1",
   vida_total: 100,
   arma: {
+    id: 0,
     dano: 0,
     hit_chance: 0,
-    critical_chance: 0
+    critical_chance: 0,
+    municao_max: 0,
   },
   colete: {
+    id: 0,
     protecao: 0,
     peso: 0,
     hit_chance: 0
@@ -16,11 +19,14 @@ var jogador_dois = {
   nome: "teste2",
   vida_total: 100,
   arma: {
+    id: 0,
     dano: 0,
     hit_chance: 0,
-    critical_chance: 0
+    critical_chance: 0,
+    municao_max: 0
   },
   colete: {
+    id: 0,
     protecao: 0,
     peso: 0,
     hit_chance: 0
@@ -28,44 +34,56 @@ var jogador_dois = {
 };
 var armas = {
   arma1: {
+    id: 1,
     dano: 1,
     hit_chance: 1,
-    critical_chance: 1
+    critical_chance: 1,
+    municao_max: 1
   },
   arma2: {
+    id: 2,
     dano: 2,
     hit_chance: 2,
-    critical_chance: 2
+    critical_chance: 2,
+    municao_max: 2
   },
   arma3: {
+    id: 3,
     dano: 3,
     hit_chance: 3,
-    critical_chance: 3
+    critical_chance: 3,
+    municao_max: 3
   },
   arma4: {
+    id: 4,
     dano: 4,
     hit_chance: 4,
-    critical_chance: 4
+    critical_chance: 4,
+    municao_max: 4
   }
 };
 
 var coletes = {
   colete1: {
+    id: 1,
     protecao: 1,
     peso: 1,
     hit_chance: 1
   },
   colete2: {
+    id: 2,
     protecao: 2,
     peso: 2,
     hit_chance: 2
   },
   colete3: {
+    id: 3,
     protecao: 3,
     peso: 3,
     hit_chance: 3
   },
   colete4: {
+    id: 4,
     protecao: 4,
     peso: 4,
     hit_chance: 4
@@ -97,9 +115,21 @@ function changeArmaAndColete(jogador) {
     for (var i = 0; i < arma_jogador_um.length; i++) {
       if (arma_jogador_um[i].checked) {
         console.log("Escolheu: " + arma_jogador_um[i].value);
-        // jogador_um.arma.dano = armas.arma4.dano;
-        // jogador_um.arma.hit_chance = armas.arma4.hit_chance;
-        // jogador_um.arma.critical_chance = armas.arma4.critical_chance;
+        if (i === 3) {
+          jogador_um.arma = armas.arma4;
+        } else {
+          if (i === 2) {
+            jogador_um.arma = armas.arma3;
+          } else {
+
+            if (i === 1) {
+              jogador_um.arma = armas.arma2;
+
+            } else {
+              jogador_um.arma = armas.arma1;
+            }
+          }
+        }
         console.log(jogador_um.arma);
       }
     }
@@ -107,17 +137,48 @@ function changeArmaAndColete(jogador) {
     for (var i = 0; i < colete_jogador_um.length; i++) {
       if (colete_jogador_um[i].checked) {
         console.log("Escolheu: " + colete_jogador_um[i].value);
+        if (i === 3) {
+          jogador_um.colete = coletes.colete4;
+        } else {
+          if (i === 2) {
+            jogador_um.colete = coletes.colete3;
+          } else {
 
+            if (i === 1) {
+              jogador_um.colete = coletes.colete2;
+
+            } else {
+              jogador_um.colete = coletes.colete1;
+            }
+          }
+        }
         console.log(jogador_um.colete);
       }
     }
+    var jogador_um_pronto = true;
+    console.log("jogador_um_pronto: " + jogador_um_pronto);
+    document.getElementById("jogador_um_button_ready").innerHtml = "Pronto";
   }
   if (jogador === jogador_dois) {
     var arma_jogador_dois = document.getElementsByName("arma_jogador_dois");
     for (var i = 0; i < arma_jogador_dois.length; i++) {
       if (arma_jogador_dois[i].checked) {
         console.log("Escolheu: " + arma_jogador_dois[i].value);
+        if (i === 3) {
+          jogador_dois.arma = armas.arma4;
+        } else {
+          if (i === 2) {
+            jogador_dois.arma = armas.arma3;
+          } else {
 
+            if (i === 1) {
+              jogador_dois.arma = armas.arma2;
+
+            } else {
+              jogador_dois.arma = armas.arma1;
+            }
+          }
+        }
         console.log(jogador_dois.arma);
       }
     }
@@ -125,23 +186,44 @@ function changeArmaAndColete(jogador) {
     for (var i = 0; i < colete_jogador_dois.length; i++) {
       if (colete_jogador_dois[i].checked) {
         console.log("Escolheu: " + colete_jogador_dois[i].value);
+        if (i === 3) {
+          jogador_dois.colete = coletes.colete4;
+        } else {
+          if (i === 2) {
+            jogador_dois.colete = coletes.colete3;
+          } else {
 
+            if (i === 1) {
+              jogador_dois.colete = coletes.colete2;
+
+            } else {
+              jogador_dois.colete = coletes.colete1;
+            }
+          }
+        }
         console.log(jogador_dois.colete);
       }
     }
+    var jogador_dois_pronto = true;
+    console.log("jogador_dois_pronto: " + jogador_dois_pronto);
+    document.getElementById("jogador_dois_button_ready").innerHtml = "NovoTexto";
   }
 };
+
 function get(object, param) {
-    var level = param.split("."), value = object;
-    for (var i in level)
-      value = value[level[i]];
-    return value;
+  var level = param.split("."),
+    value = object;
+  for (var i in level)
+    value = value[level[i]];
+  return value;
 }
+
 function set(object, param, value) {
   var levels = param.split('.');
   var lastLevel = levels.pop();
   get(object, levels.join('.'))[lastLevel] = value;
 }
+
 function start() {
 
 }
