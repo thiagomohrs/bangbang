@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+  <script type="text/javascript" src="javascripts/main.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <title>Bang-Bang</title>
+</head>
+<body>
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>Jogador 1</h1>
+      <input class="typeahead" id="jogador_um_nome" placeholder="Nome do Jogador 1" value="">
+      <button onclick="changeName(jogador_um)" type="button" class="btn">Ok</button>
+    </div>
+
+    <div class="col-sm-6">
+      <h1>Jogador 2</h1>
+      <input class="typeahead" id="jogador_dois_nome" placeholder="Nome do Jogador 2" value="">
+      <button onclick="changeName(jogador_dois)" type="button" class="btn">Ok</button>
+    </div>
+  </div>
+</div>
+<div>
+  <button class="btn" name="button" onclick="show(jogador_um, jogador_dois)"><span>Show</span></button>
+</div>
+</body>
+</html>
