@@ -13,78 +13,119 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-6">
-        <h1>Jogador 1</h1>
-        <input class="typeahead" id="jogador_um_nome" placeholder="Nome do Jogador 1" value="">
-        <button onclick="changeName(jogador_um)" type="button" class="btn">Ok</button>
-        <div>
-          <fieldset>
-            <legend>Arma</legend>
-            <div>
-              <form>
-                <input type="radio" id="jogador1arma1" name="arma_jogador_um" value="jogador1arma1" checked> <span>Arma 1</span>
-                <input type="radio" id="jogador1arma2" name="arma_jogador_um" value="jogador1arma2"> <span>Arma 2</span>
-                <input type="radio" id="jogador1arma3" name="arma_jogador_um" value="jogador1arma3"> <span>Arma 3</span>
-                <input type="radio" id="jogador1arma4" name="arma_jogador_um" value="jogador1arma4"> <span>Arma 4</span>
-              </form>
-            </div>
-          </fieldset>
+  <div id="div_escolha_nome_arma_colete" onclick="hideOnDesenvolvimento('button_show')" class="container-fluid">
+    <div>
+      <div class="row">
+        <div class="col-sm-6">
+          <h1>Jogador 1</h1>
+          <input class="typeahead" id="jogador_um_nome" placeholder="Nome do Jogador 1" value="">
+          <button onclick="changeName(jogador_um)" type="button" class="btn">Ok</button>
+          <div>
+            <fieldset>
+              <legend>Arma</legend>
+              <div>
+                <form>
+                  <input type="radio" id="jogador1arma1" name="arma_jogador_um" value="jogador1arma1" checked> <span>Arma 1</span>
+                  <input type="radio" id="jogador1arma2" name="arma_jogador_um" value="jogador1arma2"> <span>Arma 2</span>
+                  <input type="radio" id="jogador1arma3" name="arma_jogador_um" value="jogador1arma3"> <span>Arma 3</span>
+                  <input type="radio" id="jogador1arma4" name="arma_jogador_um" value="jogador1arma4"> <span>Arma 4</span>
+                </form>
+              </div>
+            </fieldset>
+          </div>
+          <div>
+            <fieldset>
+              <legend>Colete</legend>
+              <div>
+                <form>
+                  <input type="radio" id="jogador1colete1" name="colete_jogador_um" value="jogador1colete1" checked> <span>Colete 1</span>
+                  <input type="radio" id="jogador1colete2" name="colete_jogador_um" value="jogador1colete2"> <span>Colete 2</span>
+                  <input type="radio" id="jogador1colete3" name="colete_jogador_um" value="jogador1colete3"> <span>Colete 3</span>
+                  <input type="radio" id="jogador1colete4" name="colete_jogador_um" value="jogador1colete4"> <span>Colete 4</span>
+                </form>
+              </div>
+            </fieldset>
+          </div>
+          <button class="btn btn-primary" name="button" id="jogador_um_button_ready" onclick="changeArmaAndColete(jogador_um)" value="Not Ready"><span>Not Ready</span></button>
         </div>
-        <div>
-          <fieldset>
-            <legend>Colete</legend>
-            <div>
-              <form>
-                <input type="radio" id="jogador1colete1" name="colete_jogador_um" value="jogador1colete1" checked> <span>Colete 1</span>
-                <input type="radio" id="jogador1colete2" name="colete_jogador_um" value="jogador1colete2"> <span>Colete 2</span>
-                <input type="radio" id="jogador1colete3" name="colete_jogador_um" value="jogador1colete3"> <span>Colete 3</span>
-                <input type="radio" id="jogador1colete4" name="colete_jogador_um" value="jogador1colete4"> <span>Colete 4</span>
-              </form>
-            </div>
-          </fieldset>
-        </div>
-        <button class="btn btn-primary" name="button" id="jogador_um_button_ready" onclick="changeArmaAndColete(jogador_um)" value="Not Ready"><span>Not Ready</span></button>
-      </div>
 
-      <div class="col-sm-6">
-        <h1>Jogador 2</h1>
-        <input class="typeahead" id="jogador_dois_nome" placeholder="Nome do Jogador 2" value="">
-        <button onclick="changeName(jogador_dois)" type="button" class="btn">Ok</button>
-        <div>
-          <fieldset>
-            <legend>Arma</legend>
-            <div>
-              <form>
-                <input type="radio" id="jogador2arma1" name="arma_jogador_dois" value="jogador2arma1" checked> <span>Arma 1</span>
-                <input type="radio" id="jogador2arma2" name="arma_jogador_dois" value="jogador2arma2"> <span>Arma 2</span>
-                <input type="radio" id="jogador2arma3" name="arma_jogador_dois" value="jogador2arma3"> <span>Arma 3</span>
-                <input type="radio" id="jogador2arma4" name="arma_jogador_dois" value="jogador2arma4"> <span>Arma 4</span>
-              </form>
-            </div>
-          </fieldset>
+        <div class="col-sm-6">
+          <h1>Jogador 2</h1>
+          <input class="typeahead" id="jogador_dois_nome" placeholder="Nome do Jogador 2" value="">
+          <button onclick="changeName(jogador_dois)" type="button" class="btn">Ok</button>
+          <div>
+            <fieldset>
+              <legend>Arma</legend>
+              <div>
+                <form>
+                  <input type="radio" id="jogador2arma1" name="arma_jogador_dois" value="jogador2arma1" checked> <span>Arma 1</span>
+                  <input type="radio" id="jogador2arma2" name="arma_jogador_dois" value="jogador2arma2"> <span>Arma 2</span>
+                  <input type="radio" id="jogador2arma3" name="arma_jogador_dois" value="jogador2arma3"> <span>Arma 3</span>
+                  <input type="radio" id="jogador2arma4" name="arma_jogador_dois" value="jogador2arma4"> <span>Arma 4</span>
+                </form>
+              </div>
+            </fieldset>
+          </div>
+          <div>
+            <fieldset>
+              <legend>Colete</legend>
+              <div>
+                <form>
+                  <input type="radio" id="jogador2colete1" name="colete_jogador_dois" value="jogador2colete1" checked> <span>Colete 1</span>
+                  <input type="radio" id="jogador2colete2" name="colete_jogador_dois" value="jogador2colete2"> <span>Colete 2</span>
+                  <input type="radio" id="jogador2colete3" name="colete_jogador_dois" value="jogador2colete3"> <span>Colete 3</span>
+                  <input type="radio" id="jogador2colete4" name="colete_jogador_dois" value="jogador2colete4"> <span>Colete 4</span>
+                </form>
+              </div>
+            </fieldset>
+          </div>
+          <button class="btn btn-primary" name="button" id="jogador_dois_button_ready" onclick="changeArmaAndColete(jogador_dois)" value="Not Ready"><span>Not Ready</span></button>
         </div>
-        <div>
-          <fieldset>
-            <legend>Colete</legend>
-            <div>
-              <form>
-                <input type="radio" id="jogador2colete1" name="colete_jogador_dois" value="jogador2colete1" checked> <span>Colete 1</span>
-                <input type="radio" id="jogador2colete2" name="colete_jogador_dois" value="jogador2colete2"> <span>Colete 2</span>
-                <input type="radio" id="jogador2colete3" name="colete_jogador_dois" value="jogador2colete3"> <span>Colete 3</span>
-                <input type="radio" id="jogador2colete4" name="colete_jogador_dois" value="jogador2colete4"> <span>Colete 4</span>
-              </form>
-            </div>
-          </fieldset>
-        </div>
-        <button class="btn btn-primary" name="button" id="jogador_dois_button_ready" onclick="changeArmaAndColete(jogador_dois)" value="Not Ready"><span>Not Ready</span></button>
       </div>
     </div>
+    <div>
+      <label>
+        <span id="feedback"></span>
+      </label>
+    </div>
+    <div align="center">
+      <button class="btn btn-lg btn-block" name="button_start" onclick="start()"><span>Start</span></button>
+      <br>
+      <button class="btn btn-block " id="button_show" name="button_show" style="visibility: hidden;" onclick="show(jogador_um, jogador_dois)"><span>Show</span></button>
+    </div>
   </div>
-  <div><br>
-  <button class="btn" name="button" onclick="start()"><span>Start</span></button>
-    <button class="btn" name="button" onclick="show(jogador_um, jogador_dois)"><span>Show</span></button>
+  <div id="div_jogo" style="visibility: hidden;" class="container">
+    <div>
+      <h1>The Game</h1>
+    </div>
+    <div class="row">
+      <div class="col-sm-6" id="opcoes_jogador_um">
+        <h1><span id="nome_jogador_um"></span></h1>
+        <span id="vida_jogador_um">Vida: </span>
+        <span id="vida_atual/total_jogador_um"></span>
+        <br>
+        <span id="municao_jogador_um">Munição: </span>
+        <span id="municao_atual/total_jogador_um"></span>
+        <div class="container">
+          <button type="button" class="btn" name="button" onclick="atirar(jogador_um)"><span>Atirar</span></button>
+          <button type="button" class="btn" name="button" onclick="recarregar(jogador_um)"><span>Recarregar</span></button>
+          <button type="button" class="btn" name="button" onclick="esquivar(jogador_um)"><span>Esquivar</span></button>
+        </div>
+      </div>
+      <div class="col-sm-6" id="opcoes_jogador_dois">
+        <h1><span id="nome_jogador_dois"></span></h1>
+        <span id="vida_jogador_dois">Vida: </span>
+        <span id="vida_atual/total_jogador_dois"></span>
+        <br>
+        <span id="municao_jogador_dois">Munição: </span>
+        <span id="municao_atual/total_jogador_dois"></span>
+        <div class="container">
+          <button type="button" class="btn" name="button" onclick="atirar(jogador_um)"><span>Atirar</span></button>
+          <button type="button" class="btn" name="button" onclick="recarregar(jogador_um)"><span>Recarregar</span></button>
+          <button type="button" class="btn" name="button" onclick="esquivar(jogador_um)"><span>Esquivar</span></button>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 

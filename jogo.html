@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheets.css" media="screen">
+  <script type="text/javascript" src="javascripts/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <title>Bang-Bang</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div>
+      <h1>The Game</h1>
+    </div>
+    <div class="row">
+      <div class="col-sm-6" id="opcoes_jogador_um">
+
+          <h1><span id="nome_jogador_um"></span></h1>
+        <label for="vida">Vida: </label>
+        <label for="vida_atual/total"></label>
+        <br>
+        <label for="municao">Munição: </label>
+        <label for="municao_atual/total"></label>
+        <div class="container">
+          <button type="button" class="btn" name="button" onclick="atirar(jogador_um)"><span>Atirar</span></button>
+          <button type="button" class="btn" name="button" onclick="recarregar(jogador_um)"><span>Recarregar</span></button>
+          <button type="button" class="btn" name="button" onclick="esquivar(jogador_um)"><span>Esquivar</span></button>
+        </div>
+      </div>
+      <div class="col-sm-6" id="opcoes_jogador_dois">
+
+          <h1>Jogador 2</h1>
+        <label for="vida">Vida: </label>
+        <label for="vida_atual/total"></label>
+        <br>
+        <label for="municao">Munição: </label>
+        <label for="municao_atual/total"></label>
+        <div class="container">
+          <button type="button" class="btn" name="button" onclick="atirar(jogador_um)"><span>Atirar</span></button>
+          <button type="button" class="btn" name="button" onclick="recarregar(jogador_um)"><span>Recarregar</span></button>
+          <button type="button" class="btn" name="button" onclick="esquivar(jogador_um)"><span>Esquivar</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

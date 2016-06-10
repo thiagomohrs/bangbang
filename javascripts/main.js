@@ -1,5 +1,5 @@
 var jogador_um = {
-  nome: "teste1",
+  nome: "Jogador 1",
   vida_total: 100,
   arma: {
     id: 0,
@@ -16,7 +16,7 @@ var jogador_um = {
   }
 };
 var jogador_dois = {
-  nome: "teste2",
+  nome: "Jogador 2",
   vida_total: 100,
   arma: {
     id: 0,
@@ -90,13 +90,34 @@ var coletes = {
   }
 };
 
+var desenvolvimento = false;
+
 var jogador_um_pronto = false;
 var jogador_dois_pronto = false;
+
+function hideOnDesenvolvimento(item){
+  if (desenvolvimento === true) {
+    document.getElementById(item).style.visibility="visible";
+  }
+  else {
+    document.getElementById(item).style.visibility="hidden";
+  }
+}
+function hide(item){
+    document.getElementById(item).style.visibility="hidden";
+}
+function hideDisplay(item){
+    document.getElementById(item).style.display="none";
+}
+function visible(item){
+    document.getElementById(item).style.visibility="visible";
+}
+
+
 function show(jogador_um, jogador_dois) {
   console.log(jogador_um);
   console.log(jogador_dois);
 }
-
 function changeName(jogador) {
   if (jogador === jogador_um) {
     var jogador_um_nome = document.getElementById('jogador_um_nome');
@@ -212,12 +233,10 @@ function mudarEstado(jogador) {
   if (jogador === "jogador_um") {
     if (jogador_um_pronto === true) {
       jogador_um_pronto = false;
-      document.getElementById("jogador_um_button_ready").value = "Not Ready";
       document.getElementById("jogador_um_button_ready").innerHTML = "Not Ready";
       document.getElementById("jogador_um_button_ready").className = "btn btn-danger";
     } else {
       jogador_um_pronto = true;
-      document.getElementById("jogador_um_button_ready").value = "Ready";
       document.getElementById("jogador_um_button_ready").innerHTML = "Ready";
       document.getElementById("jogador_um_button_ready").className = "btn btn-success";
     }
@@ -225,12 +244,10 @@ function mudarEstado(jogador) {
     if (jogador === "jogador_dois") {
       if (jogador_dois_pronto === true) {
         jogador_dois_pronto = false;
-        document.getElementById("jogador_dois_button_ready").value = "Not Ready";
         document.getElementById("jogador_dois_button_ready").innerHTML = "Not Ready";
         document.getElementById("jogador_dois_button_ready").className = "btn btn-danger";
       } else {
         jogador_dois_pronto = true;
-        document.getElementById("jogador_dois_button_ready").value = "Ready";
         document.getElementById("jogador_dois_button_ready").innerHTML = "Ready";
         document.getElementById("jogador_dois_button_ready").className = "btn btn-success";
       }
@@ -243,15 +260,50 @@ function start() {
     console.log("dois " + jogador_dois_pronto);
   if (jogador_um_pronto === true) {
     if (jogador_dois_pronto === true) {
+      hideDisplay("div_escolha_nome_arma_colete");
+      hideDisplay("button_show");
+      visible("div_jogo");
       console.log("jogo começou");
+      document.getElementById("nome_jogador_um").innerHTML = jogador_um.nome;
+      document.getElementById("nome_jogador_dois").innerHTML = jogador_dois.nome;
+      jogador_um.vida_atual = 100;
+      jogador_dois.vida_total = 100;
+      jogador_um.municao_atual = 0;
+      jogador_dois.municao_atual = 0;
+      document.getElementById("vida_atual/total_jogador_um").innerHTML = jogador_um.vida_atual+"/"+jogador_um.vida_total;
+      document.getElementById("vida_atual/total_jogador_dois").innerHTML = jogador_dois.vida_atual+"/"+jogador_dois.vida_total;
+      document.getElementById("municao_atual/total_jogador_um").innerHTML = jogador_um.municao_atual+"/"+jogador_um.arma.municao_max;
+      document.getElementById("municao_atual/total_jogador_dois").innerHTML = jogador_dois.municao_atual+"/"+jogador_dois.arma.municao_max;
     } else {
+      document.getElementById("feedback").innerHTML = "Jogador dois não está pronto";
       console.log("jogador dois não está pronto");
     }
   } else {
     if (jogador_dois_pronto === false) {
+      document.getElementById("feedback").innerHTML = "Jogadores não estão prontos";
       console.log("jogadores não estão prontos");
     } else {
+      document.getElementById("feedback").innerHTML = "Jogador um não está pronto";
       console.log("jogador um não está pronto");
     }
   }
+}
+
+function atirar(jogador){
+  if (jogador.municao_atual>0) {
+    jogador.municao_atual--;
+  }else {
+    alert("arma se munição");
+  }
+}
+function recarregar(jogador){
+  if (jogador.municao_atual<jogador.municao_max) {
+    jogador.municao_atual++;
+  }
+  else {
+    alert("arma totalmente carregada");
+  }
+}
+function esquivar(jogador){
+
 }
