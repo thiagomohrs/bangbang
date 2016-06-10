@@ -212,19 +212,27 @@ function mudarEstado(jogador) {
   if (jogador === "jogador_um") {
     if (jogador_um_pronto === true) {
       jogador_um_pronto = false;
-      document.getElementById("jogador_um_button_ready").innerHtml = "Not Ready"
+      document.getElementById("jogador_um_button_ready").value = "Not Ready";
+      document.getElementById("jogador_um_button_ready").innerHTML = "Not Ready";
+      document.getElementById("jogador_um_button_ready").className = "btn btn-danger";
     } else {
       jogador_um_pronto = true;
-      document.getElementById("jogador_um_button_ready").innerHtml = "Ready"
+      document.getElementById("jogador_um_button_ready").value = "Ready";
+      document.getElementById("jogador_um_button_ready").innerHTML = "Ready";
+      document.getElementById("jogador_um_button_ready").className = "btn btn-success";
     }
   } else {
     if (jogador === "jogador_dois") {
       if (jogador_dois_pronto === true) {
         jogador_dois_pronto = false;
-        document.getElementById("jogador_dois_button_ready").innerHtml = "Not Ready"
+        document.getElementById("jogador_dois_button_ready").value = "Not Ready";
+        document.getElementById("jogador_dois_button_ready").innerHTML = "Not Ready";
+        document.getElementById("jogador_dois_button_ready").className = "btn btn-danger";
       } else {
         jogador_dois_pronto = true;
-        document.getElementById("jogador_dois_button_ready").innerHtml = "Ready"
+        document.getElementById("jogador_dois_button_ready").value = "Ready";
+        document.getElementById("jogador_dois_button_ready").innerHTML = "Ready";
+        document.getElementById("jogador_dois_button_ready").className = "btn btn-success";
       }
     }
   }
