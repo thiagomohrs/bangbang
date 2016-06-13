@@ -1,4 +1,5 @@
 var jogador_um = {
+  id: 1,
   nome: "Jogador 1",
   vida_total: 100,
   arma: {
@@ -16,6 +17,7 @@ var jogador_um = {
   }
 };
 var jogador_dois = {
+  id: 2,
   nome: "Jogador 2",
   vida_total: 100,
   arma: {
@@ -301,6 +303,20 @@ function atirar(jogador) {
   } else {
     alert("arma se munição");
   }
+
+  if (jogador.municao_atual === 0) {
+    if (jogador.id === 1) {
+      document.getElementById("button_atirar_jogador_um").className = "btn btn-danger";
+    } else {
+      document.getElementById("button_atirar_jogador_dois").className = "btn btn-danger";
+    }
+  } else {
+    if (jogador.id === 1) {
+      document.getElementById("button_atirar_jogador_um").className = "btn";
+    } else {
+      document.getElementById("button_atirar_jogador_dois").className = "btn";
+    }
+  }
 }
 
 function recarregar(jogador) {
@@ -311,6 +327,19 @@ function recarregar(jogador) {
     document.getElementById("municao_atual/total_jogador_dois").innerHTML = jogador_dois.municao_atual + "/" + jogador_dois.arma.municao_max;
   } else {
     alert("arma totalmente carregada");
+  }
+  if (jogador.municao_atual === 0) {
+    if (jogador.id === 1) {
+      document.getElementById("button_atirar_jogador_um").className = "btn btn-danger";
+    } else {
+      document.getElementById("button_atirar_jogador_dois").className = "btn btn-danger";
+    }
+  } else {
+    if (jogador.id === 1) {
+      document.getElementById("button_atirar_jogador_um").className = "btn";
+    } else {
+      document.getElementById("button_atirar_jogador_dois").className = "btn";
+    }
   }
 }
 
