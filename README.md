@@ -1,1 +1,1 @@
-Jogo Bang-bang criado para aprende JS.
+Jogo Bang-bang criado para aprender JavaScript.
